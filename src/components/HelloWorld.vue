@@ -1,102 +1,70 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
-  </div>
+  <el-container>
+    <el-header>
+      <h1>BYC管理系统</h1>
+    </el-header>
+    <el-main>
+      <table id="login-table" style="width:300px;height:200px;margin:0 auto;margin-top:20px">
+        <tr>
+          <td>
+            <el-input placeholder="请输入用户名" v-model="userName" clearable></el-input>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <el-input placeholder="请输入密码" v-model="passWord" show-password></el-input>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <el-button
+              style=" width:300px"
+              v-bind:disabled="loginText=='正在登录....'"
+              type="primary"
+              :loading="loginText=='正在登录....'"
+              v-on:click="onLogin()"
+            >{{loginText}}</el-button>
+          </td>
+        </tr>
+      </table>
+    </el-main>
+    <el-footer></el-footer>
+  </el-container>
 </template>
 
 <script>
+
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: "Welcome to Your Vue.js App",
+      userName: "",
+      passWord: "",
+      loginText: "登录"
+    };
+  },
+  methods: {
+    /**
+     * 登录
+     */
+    onLogin: function() {
+      this.loginText = "正在登录....";
+      this.$message({
+        message: "登录成功!",
+        type: "success"
+      });
+
+      // this.$router.push({ path: "/main" });
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -109,5 +77,9 @@ li {
 }
 a {
   color: #42b983;
+}
+input:focus {
+  border-style: solid;
+  border-color: #339933;
 }
 </style>
