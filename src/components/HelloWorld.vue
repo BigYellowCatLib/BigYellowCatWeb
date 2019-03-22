@@ -33,7 +33,7 @@
 </template>
 
 <script>
-
+import publicConfig from "../common/publicConfig";
 export default {
   name: "HelloWorld",
   data() {
@@ -41,7 +41,8 @@ export default {
       msg: "Welcome to Your Vue.js App",
       userName: "",
       passWord: "",
-      loginText: "登录"
+      loginText: "登录",
+      item: publicConfig
     };
   },
   methods: {
@@ -50,8 +51,9 @@ export default {
      */
     onLogin: function() {
       this.loginText = "正在登录....";
+
       this.$message({
-        message: "登录成功!",
+        message: this.item.fetch(),
         type: "success"
       });
 

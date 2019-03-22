@@ -1,21 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import main from '@/components/main/main'
+import {home} from 'layout/'
+
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-     path:'/main',
-     name:'main',
-     component:main
 
-    }
-  ]
+import { login, } from 'page/'
+
+const  routes=[
+  {
+    path: '/',
+    name: 'login',
+    hidden: true,
+    component: login
+  },
+  {
+    path: '/index',
+    name: 'index',
+    hidden: true,
+    component: home
+
+  }
+]
+export default new Router({
+
+  routes,
+  strict: process.env.NODE_ENV !== 'production',
 })
+
