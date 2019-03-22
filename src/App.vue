@@ -14,6 +14,6 @@ export default {
 
 <style lang="less">
 
-
+	@import './style/font-awesome.min.css';
 	@import './style/common';
 </style>

@@ -104,7 +104,7 @@ export default {
 
       //   this.$router.addRoutes(asyncRouterMap);
       // }
-      this.$router.push("/index");
+      this.$router.push("/home");
      
     }
   }
