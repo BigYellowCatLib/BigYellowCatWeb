@@ -6,7 +6,7 @@
       <div
         class="content_page"
         :style="{'margin-left':180+'px',
-                         'width':1600+'px',
+                         'width':1800+'px',
                          'height':900+'px'}"
       >
         <div class="content">

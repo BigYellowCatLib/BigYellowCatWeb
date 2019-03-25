@@ -130,7 +130,7 @@
     .head-nav {
         width: 100%;
         height: 60px;
-        min-width:600px;
+        min-width:800px;
         padding: 5px;
         background-color: #324057;;
         // background: url('../assets/img/zhi001.png');
